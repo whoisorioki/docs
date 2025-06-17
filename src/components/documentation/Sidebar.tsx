@@ -31,112 +31,89 @@ interface NavigationItem {
 
 const navigationItems: NavigationItem[] = [
   {
-    id: "getting-started",
-    title: "Getting Started",
+    id: "overview",
+    title: "Overview",
     icon: <FileText className="w-4 h-4" />,
+    children: [
+      {
+        id: "system-overview",
+        title: "System Overview",
+        icon: <FileText className="w-4 h-4" />,
+      },
+      {
+        id: "key-features",
+        title: "Key Features",
+        icon: <FileText className="w-4 h-4" />,
+      },
+    ],
+  },
+  {
+    id: "setup",
+    title: "Installation & Setup",
+    icon: <Settings className="w-4 h-4" />,
     children: [
       {
         id: "installation",
         title: "Installation",
-        icon: <FileText className="w-4 h-4" />,
+        icon: <Settings className="w-4 h-4" />,
       },
       {
-        id: "quick-start",
-        title: "Quick Start Guide",
-        icon: <FileText className="w-4 h-4" />,
-      },
-      {
-        id: "system-requirements",
-        title: "System Requirements",
-        icon: <FileText className="w-4 h-4" />,
+        id: "getting-started",
+        title: "Getting Started",
+        icon: <Settings className="w-4 h-4" />,
       },
     ],
   },
   {
-    id: "user-management",
-    title: "User Management",
-    icon: <Users className="w-4 h-4" />,
-    children: [
-      {
-        id: "user-roles",
-        title: "User Roles & Permissions",
-        icon: <Shield className="w-4 h-4" />,
-      },
-      {
-        id: "user-accounts",
-        title: "Managing User Accounts",
-        icon: <Users className="w-4 h-4" />,
-      },
-      {
-        id: "authentication",
-        title: "Authentication Setup",
-        icon: <Shield className="w-4 h-4" />,
-      },
-    ],
-  },
-  {
-    id: "pos-operations",
-    title: "POS Operations",
-    icon: <CreditCard className="w-4 h-4" />,
-    children: [
-      {
-        id: "sales-processing",
-        title: "Sales Processing",
-        icon: <CreditCard className="w-4 h-4" />,
-      },
-      {
-        id: "payment-methods",
-        title: "Payment Methods",
-        icon: <CreditCard className="w-4 h-4" />,
-      },
-      {
-        id: "refunds-returns",
-        title: "Refunds & Returns",
-        icon: <CreditCard className="w-4 h-4" />,
-      },
-    ],
-  },
-  {
-    id: "reporting",
-    title: "Reporting & Analytics",
+    id: "modules",
+    title: "System Modules",
     icon: <BarChart3 className="w-4 h-4" />,
     children: [
       {
-        id: "sales-reports",
-        title: "Sales Reports",
-        icon: <BarChart3 className="w-4 h-4" />,
-      },
-      {
-        id: "inventory-reports",
-        title: "Inventory Reports",
-        icon: <BarChart3 className="w-4 h-4" />,
-      },
-      {
-        id: "custom-reports",
-        title: "Custom Reports",
+        id: "system-modules",
+        title: "Modules Explained",
         icon: <BarChart3 className="w-4 h-4" />,
       },
     ],
   },
   {
-    id: "configuration",
-    title: "System Configuration",
-    icon: <Settings className="w-4 h-4" />,
+    id: "guidance",
+    title: "Best Practices & Support",
+    icon: <Shield className="w-4 h-4" />,
     children: [
       {
-        id: "general-settings",
-        title: "General Settings",
-        icon: <Settings className="w-4 h-4" />,
+        id: "best-practices",
+        title: "Best Practices and Tips",
+        icon: <Shield className="w-4 h-4" />,
       },
       {
-        id: "tax-configuration",
-        title: "Tax Configuration",
-        icon: <Settings className="w-4 h-4" />,
+        id: "troubleshooting",
+        title: "Troubleshooting and Support",
+        icon: <Shield className="w-4 h-4" />,
       },
+    ],
+  },
+  {
+    id: "security",
+    title: "Compliance & Security",
+    icon: <Shield className="w-4 h-4" />,
+    children: [
       {
-        id: "printer-setup",
-        title: "Printer Setup",
-        icon: <Settings className="w-4 h-4" />,
+        id: "compliance-security",
+        title: "Compliance and Security",
+        icon: <Shield className="w-4 h-4" />,
+      },
+    ],
+  },
+  {
+    id: "reference",
+    title: "Reference",
+    icon: <FileText className="w-4 h-4" />,
+    children: [
+      {
+        id: "appendices",
+        title: "Appendices",
+        icon: <FileText className="w-4 h-4" />,
       },
     ],
   },
@@ -144,10 +121,10 @@ const navigationItems: NavigationItem[] = [
 
 export default function Sidebar({
   onTopicSelect = () => {},
-  selectedTopic = "installation",
+  selectedTopic = "system-overview",
 }: SidebarProps) {
   const [expandedSections, setExpandedSections] = useState<string[]>([
-    "getting-started",
+    "overview",
   ]);
 
   const toggleSection = (sectionId: string) => {
